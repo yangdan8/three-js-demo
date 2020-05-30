@@ -1,10 +1,10 @@
-# Webpack Typescript Starter
+# three-js-demo
 
 ### 使用方式
 
 1. 克隆项目到本地
    ```shell
-   git clone https://github.com/hungtcs-lab/three-js-demo.git your-project-name
+   git clone https://github.com/yangdan8/three-js-demo.git your-project-name
    ```
 2. 切换到项目目录
    ```shell

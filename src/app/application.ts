@@ -5,6 +5,7 @@ import {
   WebGLRenderer,
   BoxGeometry,
   MeshBasicMaterial,
+  Mesh,
 } from 'three';
 
 export class Application {
@@ -29,6 +30,8 @@ export class Application {
     const mesh = new Mesh(boxGeometry, meshBasicMaterial);
 
     this.scene.add(mesh);
+
+    this.render();
   }
 
   private onWindowResize() {
@@ -36,6 +39,8 @@ export class Application {
   }
 
   private render() {
-    this.renderer.render(this.scene, this.camera);
+    window.requestAnimationFrame(() => {
+      this.renderer.render(this.scene, this.camera);
+    });
   }
 }

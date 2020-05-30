@@ -15,6 +15,7 @@ export class Application {
 
   constructor() {
     this.scene = new Scene();
+
     this.camera = new PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
@@ -22,8 +23,6 @@ export class Application {
       1000
     );
     this.renderer = new WebGLRenderer();
-    document.body.appendChild(this.renderer.domElement);
-    window.addEventListener('resize', this.onWindowResize);
 
     const boxGeometry = new BoxGeometry(1, 1, 1);
     const meshBasicMaterial = new MeshBasicMaterial({ color: 'white' });
@@ -32,6 +31,10 @@ export class Application {
     this.scene.add(mesh);
 
     this.render();
+
+    document.body.appendChild(this.renderer.domElement);
+    this.onWindowResize();
+    window.addEventListener('resize', () => this.onWindowResize());
   }
 
   private onWindowResize() {

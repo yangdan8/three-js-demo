@@ -25,10 +25,17 @@ export class Application {
     window.addEventListener('resize', this.onWindowResize);
 
     const boxGeometry = new BoxGeometry(1, 1, 1);
-    new MeshBasicMaterial();
+    const meshBasicMaterial = new MeshBasicMaterial({ color: 'white' });
+    const mesh = new Mesh(boxGeometry, meshBasicMaterial);
+
+    this.scene.add(mesh);
   }
 
   private onWindowResize() {
     this.renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+
+  private render() {
+    this.renderer.render(this.scene, this.camera);
   }
 }

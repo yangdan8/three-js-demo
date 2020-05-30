@@ -1,4 +1,11 @@
-import { Scene, Camera, PerspectiveCamera, WebGLRenderer } from 'three';
+import {
+  Scene,
+  Camera,
+  PerspectiveCamera,
+  WebGLRenderer,
+  BoxGeometry,
+  MeshBasicMaterial,
+} from 'three';
 
 export class Application {
   private scene: Scene;
@@ -14,7 +21,14 @@ export class Application {
       1000
     );
     this.renderer = new WebGLRenderer();
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(this.renderer.domElement);
+    window.addEventListener('resize', this.onWindowResize);
+
+    const boxGeometry = new BoxGeometry(1, 1, 1);
+    new MeshBasicMaterial();
+  }
+
+  private onWindowResize() {
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
   }
 }
